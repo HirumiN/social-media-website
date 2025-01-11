@@ -1,7 +1,7 @@
 <template>
-    <div class="py-6">
+    <div class="py-4 mb-3 bg-white border rounded-lg">
         <div @click="postCreate=true"
-            class="px-2 py-3 mb-3 text-gray-500 border border-gray-300 rounded"
+            class="px-2 py-3 mb-3 text-gray-400 border-2 border-gray-400 rounded"
         >
             Click here to create new post
         </div>

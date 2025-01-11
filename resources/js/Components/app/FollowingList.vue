@@ -1,33 +1,32 @@
+<script setup>
+import FollowingListItems from "@/Components/app/FollowingListItems.vue";
+import {Disclosure, DisclosureButton, DisclosurePanel} from "@headlessui/vue";
+
+</script>
 <template>
-    <div class="px-3">
-        <h2 class="mb-3 text-2xl font-bold">My Friends</h2>
-        <TextInput :model-value="searchKeyword" placeholder="Type to search" />
-        <div class="py-8">
-            <div v-if="false" class="flex text-center text-gray-400">
-                You don't have friends yet
-            </div>
-            <div v-else>
-                <FollowingItem
-                    image="https://picsum.photos/100"
-                    title="John Doe"
-                    description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, accusantium?"
-                />
-                <FollowingItem
-                    image="https://picsum.photos/100"
-                    title="Elon Musk"
-                    description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, accusantium?"
-                />
-            </div>
+    <div class="h-full px-3 py-3 overflow-hidden bg-white border rounded">
+        <div class="block lg:hidden">
+            <Disclosure v-slot="{ open }">
+                <DisclosureButton class="w-full">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xl font-bold">My Followings</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="w-6 h-6 transition-all"
+                             :class="open ? 'rotate-90 transform' : ''">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+                        </svg>
+                    </div>
+                </DisclosureButton>
+                <DisclosurePanel>
+                    <FollowingListItems/>
+                </DisclosurePanel>
+            </Disclosure>
+        </div>
+        <div class="flex-col hidden h-full overflow-hidden lg:flex">
+            <h2 class="text-xl font-bold">My Followings</h2>
+            <FollowingListItems/>
         </div>
     </div>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-import TextInput from '../TextInput.vue';
-import FollowingItem from './FollowingItem.vue';
-
-const searchKeyword = ref('');
-</script>
-
-<style lang="scss" scoped></style>
+<style scoped>
+</style>

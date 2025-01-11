@@ -36,14 +36,14 @@ function isImage(attachment) {
             </div>
         </div>
         <div class="mb-3">
-            <Disclosure>
-                <div v-if="!open" v-html="post.body.substring(0, 200)" />
+            <Disclosure v-slot="{ open }">
+                <div v-if="!open" v-html="post.body.substring(0, 200)"/>
                 <DisclosurePanel>
-                    <div v-html="post.body" />
+                    <div v-html="post.body"/>
                 </DisclosurePanel>
                 <div class="flex justify-end">
                     <DisclosureButton class="text-blue-500 hover:underline">
-                        {{ open ? 'Read less' : 'Read more' }}
+                        {{ open ? 'Read less' : 'Read More' }}
                     </DisclosureButton>
                 </div>
             </Disclosure>
@@ -104,7 +104,7 @@ function isImage(attachment) {
             </div>
         </div>
         <div class="flex gap-2">
-            <button class="flex items-center justify-center flex-1 gap-1 px-4 py-2 text-gray-800 bg-gray-100 rounded-lg  hover:bg-gray-200">
+            <button class="flex items-center justify-center flex-1 gap-1 px-4 py-2 text-gray-800 bg-gray-100 rounded-lg hover:bg-gray-200">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="overflow-auto">
         <PostItem :post="post1"/>
         <PostItem :post="post2"/>
     </div>
